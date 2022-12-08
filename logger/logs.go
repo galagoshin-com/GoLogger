@@ -5,18 +5,19 @@ import (
 )
 
 var writingLogs = true
+var logsDir = "logs"
 
 func writeLog(log string) {
 	if !writingLogs {
 		return
 	}
-	if _, err := os.Stat("logs"); err != nil {
-		err = os.Mkdir("logs", 0777)
+	if _, err := os.Stat(logsDir); err != nil {
+		err = os.Mkdir(logsDir, 0777)
 		if err != nil {
 			Error(err)
 		}
 	}
-	logFile, err := os.OpenFile("logs/"+startTime+".log", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
+	logFile, err := os.OpenFile(logsDir+"/"+startTime+".log", os.O_APPEND|os.O_WRONLY, os.ModeAppend)
 	if err == nil {
 		_, err = logFile.WriteString(log)
 		if err != nil {
@@ -27,7 +28,7 @@ func writeLog(log string) {
 			Error(err)
 		}
 	} else {
-		logFile, err := os.Create("logs/" + startTime + ".log")
+		logFile, err := os.Create(logsDir + "/" + startTime + ".log")
 		if err != nil {
 			Error(err)
 		}
@@ -44,4 +45,8 @@ func writeLog(log string) {
 
 func SetLogs(value bool) {
 	writingLogs = value
+}
+
+func SetLogsDir(path string) {
+	logsDir = path
 }
