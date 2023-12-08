@@ -2,7 +2,7 @@ package logger
 
 import (
 	"bufio"
-	"github.com/Galagoshin/GoUtils/events"
+	"github.com/galagoshin-com/GoUtils/events"
 	"os"
 	"strings"
 )

@@ -2,7 +2,7 @@ package logger
 
 import (
 	"fmt"
-	"github.com/Galagoshin/GoUtils/events"
+	"github.com/galagoshin-com/GoUtils/events"
 	"os"
 	"runtime/debug"
 	"time"

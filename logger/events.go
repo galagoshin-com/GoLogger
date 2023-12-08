@@ -1,6 +1,6 @@
 package logger
 
-import "github.com/Galagoshin/GoUtils/events"
+import "github.com/galagoshin-com/GoUtils/events"
 
 const (
 	LogEvent                = events.EventName("LogEvent")
